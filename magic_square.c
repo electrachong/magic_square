@@ -35,6 +35,9 @@ int main(void)
    Return 0 if false, 1 if true 
    Note: in retrospect, would have been better to code each
    check in separate functions to better test if each works
+   Also, I was able to check in both directions for the diagional
+   in one loop instead of creating two; and I think it's likely
+   this would be possible for the other checks (rows/columns)
 */
 
 int is_magic_square(int square[3][3])
