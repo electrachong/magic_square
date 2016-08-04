@@ -1,0 +1,19 @@
+/* Create test case */
+int main(void)
+{
+  int square_a[3][3] = {
+    {0, 1, 2},
+    {2, 0, 1},
+    {1, 2, 0}
+  };
+  int square_b[3][3] = {
+    {1, 2, 3},
+    {1, 2, 3},
+    {1, 2, 3}
+  };
+
+  return 0;
+  
+}
+
+/* Check whether a given 3x3 square is a magic square. */
