@@ -16,7 +16,17 @@ int main(void)
     {1, 2, 3}
   };
 
-  is_magic_square(square_a);
+  if (is_magic_square(square_a)) {
+    printf("Square  A is a magic square\n");
+  } else {
+    printf("Square A is not a magic square\n");
+  }
+  if (is_magic_square(square_b)) {
+    printf("Square B is a magic square\n");
+  } else {
+    printf("Square B is not a magic square\n");
+  }
+
   return 0;
   
 }
@@ -26,6 +36,8 @@ int main(void)
 int is_magic_square(int square[3][3])
 {
   int sum;
+  int current_sum;
+  int another_sum;
   int i;
   int j;
 
@@ -36,7 +48,43 @@ int is_magic_square(int square[3][3])
     sum += square[i][j];
   }
 
-  printf("sum of first row: %d", sum);
+  /* Compare this sum to the remaining sums for the rows */
+  for (j = 1; j < 3; j++) {
+    current_sum = 0;
+    /* Add up each row in a column */
+    for (i = 0; i < 3; i++) {
+      current_sum += square[i][j];
+    }
+    if (current_sum != sum) {
+	return 0;
+    } 
+  }
 
-  return 0;
+  /* Now compare this sum to sum of the columns */
+  for (i = 0; i < 3; i++) {
+    current_sum = 0;
+    /* Add up each column in a row */
+    for (j = 0; j < 3; j++) {
+      current_sum += square[i][j];
+    }
+    if (current_sum != sum) {
+	return 0;
+    } 
+  }
+
+  /* Now finally, to check diagonals */
+  current_sum = 0;
+  another_sum = 0;
+  /* Check going left to right */
+  for (j = 0, i = 0; j < 3; i++, j++) {
+    current_sum += square[i][j];
+    /* Check from the other direction at the same time */
+    another_sum += square[i][2 - i];
+  }
+  if (current_sum != sum || another_sum != sum) {
+      return 0;
+  } 
+
+  /* If all checks have passed, return 0 */
+  return 1;
 }
