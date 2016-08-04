@@ -7,8 +7,8 @@ int main(void)
 {
   int square_a[3][3] = {
     {0, 1, 2},
-    {2, 0, 1},
-    {1, 2, 0}
+    {2, 2, 1},
+    {1, 2, 1}
   };
   int square_b[3][3] = {
     {1, 2, 3},
@@ -32,7 +32,11 @@ int main(void)
 }
 
 /* Check whether a given 3x3 square is a magic square. 
-   Return 0 if false, 1 if true */
+   Return 0 if false, 1 if true 
+   Note: in retrospect, would have been better to code each
+   check in separate functions to better test if each works
+*/
+
 int is_magic_square(int square[3][3])
 {
   int sum;
