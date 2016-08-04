@@ -25,7 +25,18 @@ int main(void)
    Return 0 if false, 1 if true */
 int is_magic_square(int square[3][3])
 {
-  printf("all is well so far");
+  int sum;
+  int i;
+  int j;
+
+  sum = 0;
+
+  /* Calculate the sum from the first row */
+  for (i = 0, j = 0; i < 3; i++) {
+    sum += square[i][j];
+  }
+
+  printf("sum of first row: %d", sum);
 
   return 0;
 }
